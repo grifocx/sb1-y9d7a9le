@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Hero } from '../components/Hero';
+import { SimpleNavigation } from '../components/SimpleNavigation';
+import { HomeSections } from '../components/HomeSections';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
+import { LocationNavigation } from '../components/LocationNavigation';
+import { LocationSections } from '../components/LocationSections';
+
+// Custom OG image for homepage
+const ogImage = "https://ovuyfxvpqxshsbtpepsr.supabase.co/storage/v1/object/sign/logo/Haymarket%20Bicycles%20Logo%202024_Social%20Icon%20-%20Linkedin%20Cover%20Colors%20-%201536x768px%20.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJsb2dvL0hheW1hcmtldCBCaWN5Y2xlcyBMb2dvIDIwMjRfU29jaWFsIEljb24gLSBMaW5rZWRpbiBDb3ZlciBDb2xvcnMgLSAxNTM2eDc2OHB4IC5wbmciLCJpYXQiOjE3NDEwMzE2MjEsImV4cCI6MjA1NjM5MTYyMX0.lUWAQEhgxb41_MT2hymbpzycp9fNxWicRZH1iPSWRuY";
+
+const mainShopHours = [
+  { day: 'Monday', hours: 'Closed' },
+  { day: 'Tuesday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Wednesday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Thursday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Friday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Saturday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Sunday', hours: '12:00 PM - 5:00 PM' },
+];
+
+const studioHours = [
+  { day: 'Monday', hours: 'Closed' },
+  { day: 'Tuesday', hours: 'Closed' },
+  { day: 'Wednesday', hours: 'Closed' },
+  { day: 'Thursday', hours: '1:00 PM - 6:00 PM' },
+  { day: 'Friday', hours: 'Closed' },
+  { day: 'Saturday', hours: '8:00 AM - 1:00 PM' },
+  { day: 'Sunday', hours: 'Closed' },
+];
+---
+
+<Layout 
+  title="Haymarket Bicycles - Quality Bikes & Service in Haymarket, VA" 
+  description="Haymarket Bicycles offers premium bikes, expert repairs, and professional fitting in Haymarket, Gainesville, and Northern Virginia. Authorized dealer for Trek, Cannondale, and other top brands since 2007."
+  ogImage={ogImage}
+  ogImageOpacity={0.8}
+>
+  <main class="min-h-screen">
+    <Hero client:load />
+    
+    <div class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SimpleNavigation client:load />
+        <HomeSections client:load />
+      </div>
+    </div>
+    
+    <section class="py-24 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold">Visit Us at Haymarket Bicycles</h2>
+          <p class="mt-4 text-lg text-muted-foreground">
+            Conveniently located to serve Haymarket, Gainesville, and Northern Virginia
+          </p>
+        </div>
+
+        <LocationNavigation client:load />
+        <LocationSections 
+          client:load
+          mainShopHours={mainShopHours}
+          studioHours={studioHours}
+        />
+      </div>
+    </section>
+  </main>
+  <LocalBusinessSchema />
+</Layout>

@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
+import { LocationNavigation } from '../components/LocationNavigation';
+import { LocationSections } from '../components/LocationSections';
+import { ContactForm } from '../components/ContactForm';
+
+const breadcrumbItems = [
+  { name: "Home", url: "https://haymarketbicycles.com/" },
+  { name: "Contact", url: "https://haymarketbicycles.com/contact" }
+];
+
+const mainShopHours = [
+  { day: 'Monday', hours: 'Closed' },
+  { day: 'Tuesday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Wednesday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Thursday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Friday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Saturday', hours: '12:00 PM - 6:00 PM' },
+  { day: 'Sunday', hours: '12:00 PM - 5:00 PM' },
+];
+
+const studioHours = [
+  { day: 'Monday', hours: 'Closed' },
+  { day: 'Tuesday', hours: 'Closed' },
+  { day: 'Wednesday', hours: 'Closed' },
+  { day: 'Thursday', hours: '1:00 PM - 6:00 PM' },
+  { day: 'Friday', hours: 'Closed' },
+  { day: 'Saturday', hours: '8:00 AM - 1:00 PM' },
+  { day: 'Sunday', hours: 'Closed' },
+];
+---
+
+<Layout title="Visit Our Bike Shop in Haymarket, VA | Store Hours & Directions | Haymarket Bicycles" description="Contact Haymarket Bicycles, conveniently located to serve Haymarket, Gainesville, and Northern Virginia. Get store hours, directions, and expert assistance for all your cycling needs. Call us today!">
+  <main class="min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-bold tracking-tight">
+          Contact Our Haymarket Bicycle Shop
+        </h1>
+        <p class="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          Have a question? We're here to help. Reach out to our team for sales, service, or general inquiries.
+        </p>
+      </div>
+      
+      <div class="mb-12">
+        <div class="bg-secondary p-6 rounded-lg max-w-xl mx-auto">
+          <h3 class="text-xl font-semibold mb-4">Quick Contact</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="bg-accent/10 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div>
+                <p class="font-medium">Phone</p>
+                <a href="tel:+17037541911" class="text-accent hover:underline">(703) 754-1911</a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div class="bg-accent/10 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </div>
+              <div>
+                <p class="font-medium">Email</p>
+                <a href="mailto:info@haymarketbicycles.com" class="text-accent hover:underline">info@haymarketbicycles.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-24">
+        <h2 class="text-2xl font-bold mb-8">Send Us a Message</h2>
+        <div class="max-w-2xl mx-auto">
+          <ContactForm client:load />
+        </div>
+      </div>
+      
+      <div>
+        <h2 class="text-2xl font-bold mb-8">Our Locations</h2>
+        <LocationNavigation client:load />
+        <LocationSections 
+          client:load
+          mainShopHours={mainShopHours}
+          studioHours={studioHours}
+        />
+      </div>
+    </div>
+  </main>
+  <LocalBusinessSchema />
+  <BreadcrumbSchema items={breadcrumbItems} />
+</Layout>

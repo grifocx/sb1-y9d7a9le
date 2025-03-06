@@ -1,0 +1,93 @@
+---
+import '@/styles/globals.css';
+import { Navbar } from '@/components/Navbar';
+import { Toaster } from '@/components/ui/toaster';
+import { BackToTop } from '@/components/BackToTop';
+import SocialPreviewImage from '@/components/SocialPreviewImage.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  ogImageOpacity?: number;
+}
+
+const { 
+  title,
+  description = "Northern Virginia's premier bicycle shop serving Haymarket, Gainesville, and surrounding areas. Offering premium bikes, expert service, and community of cycling enthusiasts.",
+  canonical,
+  ogImage = "https://ovuyfxvpqxshsbtpepsr.supabase.co/storage/v1/object/sign/logo/Haymarket%20Bicycles%20Logo%202024_Social%20Icon%20-%20Linkedin%20Cover%20Colors%20-%201536x768px%20.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJsb2dvL0hheW1hcmtldCBCaWN5Y2xlcyBMb2dvIDIwMjRfU29jaWFsIEljb24gLSBMaW5rZWRpbiBDb3ZlciBDb2xvcnMgLSAxNTM2eDc2OHB4IC5wbmciLCJpYXQiOjE3NDEwMzE2MjEsImV4cCI6MjA1NjM5MTYyMX0.lUWAQEhgxb41_MT2hymbpzycp9fNxWicRZH1iPSWRuY",
+  ogType = "website",
+  ogImageOpacity = 0.7
+} = Astro.props;
+
+// Generate canonical URL
+const currentPath = Astro.url.pathname;
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://haymarketbicycles.com';
+const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f97316">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Haymarket Bicycles" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:creator" content="@haymarketbikes" />
+    
+    <!-- Social Preview Image (Translucent) -->
+    <SocialPreviewImage 
+      imageUrl={ogImage} 
+      title={title}
+      opacity={ogImageOpacity}
+    />
+    
+    <!-- SMS/iMessage Preview -->
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Haymarket Bicycles" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/chunk.trsucAPx.js" as="script" />
+    <link rel="preload" href="/assets/chunk.B045xJDx.js" as="script" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar client:load />
+    <slot />
+    <BackToTop client:load />
+    <Toaster client:load />
+  </body>
+</html>

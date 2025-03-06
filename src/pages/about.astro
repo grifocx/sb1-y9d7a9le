@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Mission } from '../components/Mission';
+import { History } from '../components/History';
+import { TeamMember } from '../components/TeamMember';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
+
+const team = [
+  {
+    id: '1',
+    name: 'Jared Nieters',
+    role: 'Owner & Head Mechanic',
+    image: 'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&q=80',
+    bio: 'With over 25 years of experience in the cycling industry, Michael founded Haymarket Bicycles to share his passion for bikes with the community.',
+    certifications: ['PBMA Level 3', 'Trek Certified', 'Shimano S-TEC'],
+  },
+  {
+    id: '2',
+    name: 'Logan',
+    role: 'Service Manager',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80',
+    bio: 'Sarah leads our service department with expertise in suspension tuning and electronic shifting systems.',
+    certifications: ['PBMA Level 2', 'Fox Certified', 'SRAM AXS Certified'],
+  },
+  {
+    id: '3',
+    name: 'Ryan E.',
+    role: 'Sales Manager',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80',
+    bio: 'James brings 15 years of cycling retail experience and is our expert in bike fitting and customer service.',
+    certifications: ['Retül Certified', 'Trek Fit Specialist', 'BG Fit Level 2'],
+  },
+  {
+    id: '4',
+    name: 'Eric G.',
+    role: 'Community Events Coordinator',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80',
+    bio: 'Emily organizes our group rides and community events, fostering connections within our cycling family.',
+    certifications: ['USA Cycling Coach', 'Wilderness First Aid', 'League Cycling Instructor'],
+  },
+];
+
+const breadcrumbItems = [
+  { name: "Home", url: "https://haymarketbicycles.com/" },
+  { name: "About", url: "https://haymarketbicycles.com/about" }
+];
+---
+
+<Layout title="Haymarket's Neighborhood Bike Shop Since 2007 | Our Expert Team | Haymarket Bicycles" description="Meet our experienced bicycle experts serving Haymarket, Gainesville, and Northern Virginia. Our certified team has been serving local cyclists since 2007 with passion and expertise. Visit us today!">
+  <main class="min-h-screen">
+    <div class="relative py-24">
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1559160581-44bd4222d397?auto=format&fit=crop&q=80"
+          alt="Bike shop interior in Haymarket, Virginia"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-background/95 to-background/70" />
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl font-bold tracking-tight fade-in">
+            Haymarket's Neighborhood Bicycle Shop Since 2007
+          </h1>
+          <p class="mt-6 text-xl text-muted-foreground max-w-2xl fade-in">
+            Since 2007, we've been more than just a bike shop - we're a cornerstone of the Northern Virginia cycling community, 
+            dedicated to sharing our passion for cycling with riders of all levels.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <Mission client:load />
+    <History client:load />
+
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold">Meet Our Haymarket & Gainesville Bicycle Experts</h2>
+          <p class="mt-4 text-lg text-muted-foreground">
+            Experienced professionals dedicated to your cycling journey in Northern Virginia
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {team.map((member) => (
+            <TeamMember
+              key={member.id}
+              client:load
+              name={member.name}
+              role={member.role}
+              image={member.image}
+              bio={member.bio}
+              certifications={member.certifications}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <LocalBusinessSchema />
+  <BreadcrumbSchema items={breadcrumbItems} />
+</Layout>
+
+<style>
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

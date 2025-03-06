@@ -1,0 +1,50 @@
+---
+// Local Business Schema Component
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "BikeShop",
+  "name": "Haymarket Bicycles",
+  "image": "https://ovuyfxvpqxshsbtpepsr.supabase.co/storage/v1/object/sign/logo/Haymarket%20Bicycles%20Logo%202024_Favicon%20-%20Color%20-%2032px.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJsb2dvL0hheW1hcmtldCBCaWN5Y2xlcyBMb2dvIDIwMjRfRmF2aWNvbiAtIENvbG9yIC0gMzJweC5wbmciLCJpYXQiOjE3NDEwMzE2MjEsImV4cCI6MjA1NjM5MTYyMX0.Yd-Yk-Hs9Vy5rKhcOcbdJzQcvZ9OU_UwHHzFLBN-YQs",
+  "@id": "https://haymarketbicycles.com",
+  "url": "https://haymarketbicycles.com",
+  "telephone": "(703) 754-1911",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4414 Costello Way",
+    "addressLocality": "Haymarket",
+    "addressRegion": "VA",
+    "postalCode": "20169",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.813737,
+    "longitude": -77.642422
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "12:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "17:00"
+    }
+  ],
+  "sameAs": [
+    "https://facebook.com/haymarketbicycles",
+    "https://instagram.com/haymarketbicycles",
+    "https://twitter.com/haymarketbikes"
+  ],
+  "priceRange": "$$",
+  "servesCuisine": "Bicycle Sales and Service",
+  "areaServed": ["Haymarket", "Gainesville", "Northern Virginia"],
+  "description": "Northern Virginia's premier bicycle shop serving Haymarket, Gainesville, and surrounding areas. Offering premium bikes, expert service, and community rides."
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />

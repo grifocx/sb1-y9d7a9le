@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ServicesList } from '../components/ServicesList';
+import { ServicePlans } from '../components/ServicePlans';
+import { ServiceFAQ } from '../components/ServiceFAQ';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
+
+const breadcrumbItems = [
+  { name: "Home", url: "https://haymarketbicycles.com/" },
+  { name: "Services", url: "https://haymarketbicycles.com/services" }
+];
+
+// Custom OG image for services page
+const ogImage = "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&q=80&w=1200&h=630";
+---
+
+<Layout 
+  title="Expert Bike Repairs in Haymarket, VA | Professional Bicycle Service | Haymarket Bicycles" 
+  description="Professional bicycle service and repairs serving Haymarket, Gainesville, and Northern Virginia. Our certified technicians provide tune-ups, wheel building, suspension service, and maintenance plans. Schedule today!"
+  ogImage={ogImage}
+  ogImageOpacity={0.7}
+>
+  <main class="min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center mb-16 fade-in">
+        <h1 class="text-4xl font-bold tracking-tight">Professional Bicycle Service in Haymarket</h1>
+        <p class="mt-4 text-lg text-muted-foreground">
+          Expert maintenance and repairs by certified technicians serving Northern Virginia
+        </p>
+      </div>
+      <ServicesList client:load />
+      <ServicePlans client:load />
+      <ServiceFAQ client:load />
+    </div>
+  </main>
+  <ServiceSchema />
+  <FAQSchema />
+  <BreadcrumbSchema items={breadcrumbItems} />
+</Layout>
+<style>
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

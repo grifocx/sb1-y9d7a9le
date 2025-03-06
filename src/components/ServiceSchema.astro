@@ -1,0 +1,46 @@
+---
+// Service Schema Component
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Bicycle Repair and Maintenance",
+  "provider": {
+    "@type": "BikeShop",
+    "name": "Haymarket Bicycles",
+    "url": "https://haymarketbicycles.com"
+  },
+  "areaServed": ["Haymarket", "Gainesville", "Northern Virginia"],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic Tune-Up",
+      "price": "89.99",
+      "priceCurrency": "USD",
+      "description": "Complete safety check, gear adjustment, brake adjustment, tire inspection, and basic cleaning."
+    },
+    {
+      "@type": "Offer",
+      "name": "Comprehensive Tune-Up",
+      "price": "159.99",
+      "priceCurrency": "USD",
+      "description": "Everything in basic tune-up plus bearing adjustments, wheel truing, and deep cleaning."
+    },
+    {
+      "@type": "Offer",
+      "name": "Professional Bike Fitting",
+      "price": "249.99",
+      "priceCurrency": "USD",
+      "description": "Complete biomechanical assessment and bike adjustment for optimal comfort and performance."
+    },
+    {
+      "@type": "Offer",
+      "name": "Annual Maintenance Plan",
+      "price": "299.99",
+      "priceCurrency": "USD",
+      "description": "Four seasonal tune-ups, priority service, and 10% off additional repairs."
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />

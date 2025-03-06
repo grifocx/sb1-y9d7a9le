@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url>
+    <loc>https://haymarketbicycles.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2024-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/products</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2024-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2024-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/resources</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2024-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2024-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2024-05-01</lastmod>
+  </url>
+  
+  <!-- Resource Pages -->
+  <url>
+    <loc>https://haymarketbicycles.com/resources/bike-maintenance-101</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2024-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/resources/choosing-your-first-road-bike</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2024-02-10</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/resources/content-management-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2024-02-21</lastmod>
+  </url>
+  <url>
+    <loc>https://haymarketbicycles.com/resources/professional-bike-fitting-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2024-02-22</lastmod>
+  </url>
+</urlset>

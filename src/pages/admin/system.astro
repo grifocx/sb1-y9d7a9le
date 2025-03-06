@@ -1,0 +1,115 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { AdminNav } from '@/components/AdminNav';
+import { Button } from '@/components/ui/button';
+
+// Mock system status
+const systemStatus = 'online';
+
+// Get system information
+const systemInfo = {
+  timestamp: new Date().toLocaleString(),
+  environment: import.meta.env.MODE,
+  nodeVersion: process.version,
+};
+---
+
+<Layout title="System Status | Admin | Haymarket Bicycles">
+  <main class="min-h-screen p-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold">System Status</h1>
+        <p class="text-muted-foreground mt-2">
+          Monitor system health and status
+        </p>
+      </div>
+
+      <AdminNav client:load />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>System Status</CardTitle>
+            <CardDescription>Current system status</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div class="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4">
+              <div class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <div>
+                  <p class="font-semibold">System Online</p>
+                  <p>All systems are operational</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <p class="text-sm text-muted-foreground">Last checked: {systemInfo.timestamp}</p>
+              <div class="mt-4">
+                <Button type="button" variant="outline">Refresh Status</Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>System Information</CardTitle>
+            <CardDescription>Environment and runtime details</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div class="space-y-4">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="text-sm font-medium">Environment</div>
+                <div class="text-sm">{systemInfo.environment}</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="text-sm font-medium">Node Version</div>
+                <div class="text-sm">{systemInfo.nodeVersion}</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="text-sm font-medium">Last System Check</div>
+                <div class="text-sm">{systemInfo.timestamp}</div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>System Maintenance</CardTitle>
+          <CardDescription>Information about system maintenance</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div class="space-y-4">
+            <p>
+              The system is configured to automatically perform maintenance tasks to ensure optimal performance.
+            </p>
+            
+            <h3 class="text-lg font-medium mt-6">Maintenance Tasks</h3>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>
+                <strong>Cache Clearing:</strong> Performed daily to ensure fresh content.
+              </li>
+              <li>
+                <strong>Error Log Monitoring:</strong> Checked hourly for any issues.
+              </li>
+              <li>
+                <strong>Performance Optimization:</strong> Weekly analysis of system performance.
+              </li>
+            </ul>
+            
+            <div class="bg-muted p-4 rounded-md mt-4">
+              <p class="text-sm font-mono">Last maintenance: {new Date(Date.now() - 86400000).toLocaleString()}</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,41 @@
+---
+// TranslucentImage Component
+// This component creates a CSS-based translucent image overlay
+
+interface Props {
+  imageUrl: string;
+  opacity?: number;
+  width?: number;
+  height?: number;
+  alt?: string;
+}
+
+const { 
+  imageUrl, 
+  opacity = 0.7,
+  width = 1200,
+  height = 630,
+  alt = "Haymarket Bicycles"
+} = Astro.props;
+
+// Generate a unique ID for this image
+const imageId = `img-${Math.random().toString(36).substring(2, 9)}`;
+---
+
+<div id={imageId} class="translucent-image-container">
+  <img src={imageUrl} alt={alt} width={width} height={height} />
+</div>
+
+<style define:vars={{ opacity }}>
+  .translucent-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .translucent-image-container img {
+    width: 100%;
+    height: auto;
+    opacity: var(--opacity);
+  }
+</style>

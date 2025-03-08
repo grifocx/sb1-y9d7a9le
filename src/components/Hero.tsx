@@ -6,8 +6,7 @@ export function Hero() {
   return (
     <div className="relative py-16 md:py-24">
       <div className="absolute inset-0">
-        <img
-          src="https://ovuyfxvpqxshsbtpepsr.supabase.co/storage/v1/object/sign/logo/Haymarket%20Bicycles%20Logo%202024_Social%20Icon%20-%20Linkedin%20Cover%20Colors%20-%201536x768px%20.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJsb2dvL0hheW1hcmtldCBCaWN5Y2xlcyBMb2dvIDIwMjRfU29jaWFsIEljb24gLSBMaW5rZWRpbiBDb3ZlciBDb2xvcnMgLSAxNTM2eDc2OHB4IC5wbmciLCJpYXQiOjE3NDEwMzE2MjEsImV4cCI6MjA1NjM5MTYyMX0.lUWAQEhgxb41_MT2hymbpzycp9fNxWicRZH1iPSWRuY"
+        <img src="https://ovuyfxvpqxshsbtpepsr.supabase.co/storage/v1/object/sign/logo/Haymarket%20Bicycles%20Logo%202024_Social%20Icon%20-%20Linkedin%20Cover%20Colors%20-%201536x768px%20.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJsb2dvL0hheW1hcmtldCBCaWN5Y2xlcyBMb2dvIDIwMjRfU29jaWFsIEljb24gLSBMaW5rZWRpbiBDb3ZlciBDb2xvcnMgLSAxNTM2eDc2OHB4IC5wbmciLCJpYXQiOjE3NDEwMzE2MjEsImV4cCI6MjA1NjM5MTYyMX0.lUWAQEhgxb41_MT2hymbpzycp9fNxWicRZH1iPSWRuY"
           alt="Haymarket bicycles brand logo representing the rolling hills of the piedmont region of northern virginia"
           className="w-full h-full object-cover"
           width="1536"
